@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(154, 241, 241);
+    font-family: Comic Sans MS;
+}
+.Temperature {
+    display: block;        
+    text-align: center;    
+    margin-top: -20px;     
+    font-size: 2rem;      
+}
