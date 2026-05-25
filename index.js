@@ -117,9 +117,26 @@ const cloudyweatherlist=[
   "broken clouds",
   "overcast clouds"
 ];
+const weathers={
+  thunder:thunderweatherlist,
+  drizzle:drizzleweatherlist,
+  rain:rainweatherlist,
+  snow:snowweatherlist,
+  atmosphere:atomosphereweatherlist,
+  clear:clearsky,
+  clouds:cloudyweatherlist,
 
+};
 
-
+function getcatergories(description) {
+  for (const category in weathers) {
+    if (weathers[category].includes(description)) {
+      console.log(category);
+      return category;
+    }
+}
+return "unknown";
+}
 
 
 
@@ -137,6 +154,8 @@ let answer= await getdaapikey.json();
      document.getElementById("weather").innerHTML = "City not found!";
     return;
   }
+  let weatherdescription=answer.weather[0].description
+  const category= getcatergories(weatherdescription)
    document.getElementById("weather").innerHTML = `
     <h2 class="Cityname">${answer.name}</h2>
     <p class="Temperature"> ${answer.main.temp}°C</p>
