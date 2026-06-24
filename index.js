@@ -31,7 +31,8 @@ async function getweather() {
   const city = document.getElementById("city");
   
   
-  const apiurl = `http://localhost:3000/api/weather?city=${city.value}`;
+  const apiurl = `https://github.dev{city.value}`;
+
 
   try {
     const getdaapikey = await fetch(apiurl);
