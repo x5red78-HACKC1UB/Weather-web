@@ -1,10 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-
-import fetch from 'node-fetch'; 
-
-dotenv.config();
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config(); 
 
 const app = express();
 app.use(cors()); 
@@ -20,7 +16,8 @@ app.get('/api/weather', async (req, res) => {
         }
 
        
-        const apiUrl = `https://openweathermap.org{cityName}&appid=${apiKey}&units=metric`;
+       const apiUrl = `https://openweathermap.org{cityName}&appid=${apiKey}&units=metric`;
+
        
         const response = await fetch(apiUrl);
         const data = await response.json();
