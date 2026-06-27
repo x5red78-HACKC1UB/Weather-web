@@ -30,7 +30,7 @@ async function getweather() {
   const city = document.getElementById("city");
   
   
-const apiurl = `http://localhost:3000/api/weather?city=${encodeURIComponent(city.value)}`;
+const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev/api/weather?city=${encodeURIComponent(city.value)}`;
 
 
   try {
