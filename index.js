@@ -1,4 +1,3 @@
-
 const thunderweatherlist = ["thunderstorm with light rain", "thunderstorm with rain", "thunderstorm with heavy rain", "light thunderstorm", "thunderstorm", "heavy thunderstorm", "ragged thunderstorm", "thunderstorm with light drizzle", "thunderstorm with drizzle", "thunderstorm with heavy drizzle"];
 const drizzleweatherlist = ["light intensity drizzle", "drizzle", "heavy intensity drizzle", "light intensity drizzle rain", "drizzle rain", "heavy intensity drizzle rain", "shower rain and drizzle", "heavy shower rain and drizzle", "shower drizzle"];
 const rainweatherlist = ["light rain", "moderate rain", "heavy intensity rain", "very heavy rain", "extreme rain", "freezing rain", "light intensity shower rain", "shower rain", "heavy intensity shower rain", "ragged shower rain"];
@@ -31,7 +30,7 @@ async function getweather() {
   const city = document.getElementById("city");
   
   
-  const apiurl = `https://github.dev{city.value}`;
+const apiurl = `http://localhost:3000/api/weather?city=${encodeURIComponent(city.value)}`;
 
 
   try {
@@ -43,7 +42,12 @@ async function getweather() {
       return;
     }
 
-   
+    
+    if (!answer.weather || answer.weather.length === 0) {
+      document.getElementById("weather").innerHTML = "Error parsing weather data.";
+      return;
+    }
+
     let weatherdescription = answer.weather[0].description;
     const category = getcatergories(weatherdescription);
     
@@ -55,6 +59,8 @@ async function getweather() {
     `;
   } catch (error) {
     document.getElementById("weather").innerHTML = "Error connecting to server.";
+    console.error(error);
   }
 }
+
 
