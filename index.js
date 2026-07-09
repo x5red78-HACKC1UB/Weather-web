@@ -50,16 +50,11 @@ const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev
 
     let weatherdescription = answer.weather[0].description;
     const category = getcatergories(weatherdescription);
+    let bgimage="";
     
-    document.getElementById("weather").innerHTML = `
-      <h2 class="Cityname">${answer.name}</h2>
-      <p class="Temperature"> ${answer.main.temp}°C</p>
-      <p> ${answer.weather[0].description}</p>
-      <p> Wind: ${answer.wind.speed} m/s</p>
-    `;
     switch (category) {
     case "thunder":
-      
+      bgimage="images/thunderboltmiku.jpeg"
       break;
 
       case "drizzle":
@@ -67,7 +62,7 @@ const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev
   break;
 
 case "rain":
-
+bgimage="images/thunderboltmiku.jpeg"
   break;
 
 case "snow":
@@ -90,6 +85,12 @@ case "snow":
     default:
       break;
   }
+    document.getElementById("weather").innerHTML = `
+      <h2 class="Cityname">${answer.name}</h2>
+      <p class="Temperature"> ${answer.main.temp}°C</p>
+      <p> ${answer.weather[0].description}</p>
+      <p> Wind: ${answer.wind.speed} m/s</p>
+    `;
   } catch (error) {
     document.getElementById("weather").innerHTML = "Error connecting to server.";
     console.error(error);
