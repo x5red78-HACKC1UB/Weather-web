@@ -57,6 +57,39 @@ const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev
       <p> ${answer.weather[0].description}</p>
       <p> Wind: ${answer.wind.speed} m/s</p>
     `;
+    switch (category) {
+    case "thunder":
+      
+      break;
+
+      case "drizzle":
+
+  break;
+
+case "rain":
+
+  break;
+
+case "snow":
+
+  break;
+
+
+  case "atmosphere":
+
+  break;
+
+  case "clear":
+
+  break;
+
+  case "clouds":
+
+  break;
+
+    default:
+      break;
+  }
   } catch (error) {
     document.getElementById("weather").innerHTML = "Error connecting to server.";
     console.error(error);
