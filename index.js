@@ -16,6 +16,10 @@ const weathers = {
   clouds: cloudyweatherlist,
 };
 
+let bgimage="";
+
+
+
 function getcatergories(description) {
   for (const category in weathers) {
     if (weathers[category].includes(description)) {
@@ -50,7 +54,7 @@ const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev
 
     let weatherdescription = answer.weather[0].description;
     const category = getcatergories(weatherdescription);
-    let bgimage="";
+    
     
     switch (category) {
     case "thunder":
@@ -75,7 +79,7 @@ case "snow":
   break;
 
   case "clear":
-
+bgimage="images/thunderboltmiku.jpeg"
   break;
 
   case "clouds":
@@ -85,6 +89,9 @@ case "snow":
     default:
       break;
   }
+
+ document.querySelector(".background").style.backgroundImage = `url('${bgimage}')`;
+
     document.getElementById("weather").innerHTML = `
       <h2 class="Cityname">${answer.name}</h2>
       <p class="Temperature"> ${answer.main.temp}°C</p>
