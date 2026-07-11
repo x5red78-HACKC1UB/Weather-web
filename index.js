@@ -66,7 +66,7 @@ const apiurl = `https://ideal-space-waffle-x5q6vjwg45qxh6qp5-3000.app.github.dev
   break;
 
 case "rain":
-bgimage="images/thunderboltmiku.jpeg"
+
   break;
 
 case "snow":
@@ -79,7 +79,7 @@ case "snow":
   break;
 
   case "clear":
-bgimage="images/thunderboltmiku.jpeg"
+bgimage="images/clearshy.avif"
   break;
 
   case "clouds":
